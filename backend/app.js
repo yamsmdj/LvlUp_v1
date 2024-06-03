@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-const courseRoutes = require('./routes/course')
+const languageRoutes = require('./routes/language');
+const courseRoutes = require('./routes/course');
+const exerciseRoutes = require('./routes/exercise');
 
 app.use(express.json());
 
@@ -22,6 +24,8 @@ app.use((req, res, next) => {
     next();
   });
 
-app.use('/api/course', courseRoutes)
+app.use('/api/language', languageRoutes);
+app.use('/api/course', courseRoutes);
+app.use('/api/exercise', exerciseRoutes);
 
 module.exports = app;

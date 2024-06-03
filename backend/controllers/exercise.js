@@ -20,19 +20,19 @@ exports.getAllExercise = (req, res, next) => {
     .catch(error => res.status(400).json({error}))
 }
 exports.getExercise = (req, res, next) => {
-    Exercise.findOne({_id: req.param.id})
+    Exercise.findOne({_id: req.params.id})
     .then(exercises => res.status(200).json(exercises))
     .catch(error => res.status(400).json({error}))
 }
 
 exports.modifyExercise = (req, res, next) => {
-    Exercise.updateOne({_id: req.param.id}, {...req.body, _id: req.param.id})
+    Exercise.updateOne({_id: req.params.id}, {...req.body, _id: req.params.id})
     .then(() => res.status(200).json({message : 'Exercise Updated'}))
     .catch(error => res.status(400).json({error}))
 }
 
 exports.deleteExercise = (req, res, next) => {
-    Exercise.deleteOne({_id: req.param.id})
+    Exercise.deleteOne({_id: req.params.id})
     .then(exercises => res.status(200).message('Exercise deleted'))
     .catch(error => res.status(400).json({error}))
 }
