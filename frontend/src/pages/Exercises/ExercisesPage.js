@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
-import MonacoEditor from '../components/MonacoEditor';
+import React, { useState } from "react";
+import MonacoEditor from "../../components/MonacoEditor";
 
 const ExercisePage = () => {
-  const [userCode, setUserCode] = useState('// Ecrivez votre code ici\nfunction sayHello() {\n  // votre code ici\n}');
-  const [result, setResult] = useState('');
+  const [userCode, setUserCode] = useState(
+    "// Ecrivez votre code ici\nfunction sayHello() {\n  // votre code ici\n}"
+  );
+  const [result, setResult] = useState("");
 
   const handleCodeChange = (newCode) => {
     setUserCode(newCode);
@@ -25,9 +27,11 @@ const ExercisePage = () => {
       // eslint-disable-next-line no-eval
       const output = eval(wrappedCode);
       if (output === "Hello, World!") {
-        setResult('Succès: Votre code est correct!');
+        setResult("Succès: Votre code est correct!");
       } else {
-        setResult(`Échec: Votre code a retourné "${output}" au lieu de "Hello, World!"`);
+        setResult(
+          `Échec: Votre code a retourné "${output}" au lieu de "Hello, World!"`
+        );
       }
     } catch (error) {
       setResult(`Erreur dans le code: ${error.message}`);
@@ -35,10 +39,14 @@ const ExercisePage = () => {
   };
 
   return (
-    <div className='grow'>
+    <div className="grow">
       <h1>Exercice de programmation</h1>
       <p>Écrivez une fonction qui retourne "Hello, World!" :</p>
-      <MonacoEditor value={userCode} onChange={handleCodeChange} language="javascript" />
+      <MonacoEditor
+        value={userCode}
+        onChange={handleCodeChange}
+        language="javascript"
+      />
       <button onClick={runCode}>Exécuter le code</button>
       <p>{result}</p>
     </div>

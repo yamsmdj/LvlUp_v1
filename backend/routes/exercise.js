@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const exerciseController = require('../controllers/exercise')
+const auth = require('../middleware/auth')
 
 router.get('/', exerciseController.getAllExercise);
 router.get('/:id', exerciseController.getExercise);
-router.post('/', exerciseController.createExercise);
-router.delete('/:id', exerciseController.deleteExercise);
-router.put('/:id', exerciseController.modifyExercise);
+router.post('/', auth, exerciseController.createExercise);
+router.delete('/:id', auth, exerciseController.deleteExercise);
+router.put('/:id', auth, exerciseController.modifyExercise);
 
 module.exports = router;
