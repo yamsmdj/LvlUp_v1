@@ -1,19 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react';
 
-const CardLanguage = () => {
+const CardLanguage = ({language}) => {
 
-    const [language, setLanguage] = useState([])
 
-    useEffect(() => {
-        axios.get("http://localhost:3001/api/language/")
-        .then((res) => {
-            setLanguage(res.data)
-        })
-        .catch((error) => {
-            console.error("une erreur c'est produit lors de la recupération du langague : " ,error);
-        })
-    },[])
 
     return (
         <div>
