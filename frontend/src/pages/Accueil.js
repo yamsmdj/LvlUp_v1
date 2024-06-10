@@ -10,7 +10,7 @@ import Register from "./Auth/Register";
 const Accueil = () => {
 
   const token = localStorage.getItem("token")
-  console.log(token);
+  
   return (
     <section className="grow">
         <h1 className={` text-4xl ${token == null && "w-1/2"} text-center tracking-widest text-green-400 p-5`} >

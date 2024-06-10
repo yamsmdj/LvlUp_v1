@@ -49,7 +49,12 @@ function App() {
       });
   }, []);
 
-
+  useEffect(() => {
+    return () => {
+      localStorage.clear();
+    };
+  });
+  
   return (
     <BrowserRouter>
       <Wrapper>
@@ -61,7 +66,7 @@ function App() {
           <Route path="/account" element={isConnect() ?<Account userId={userId} userPseudo={userPseudo} userRole={userRole} userLevel={userLevel} userEmail={userEmail}/> : <Error404 /> } />
           <Route path="/cursus" element={<Cursus language={language} />} />
           <Route path="/formations" element={<Formations language={language} />} />
-          <Route path="/formations/:title" element={<LearnLanguage />} />
+          <Route path="/formations/:title" element={<LearnLanguage language={language} />} />
           <Route path="/exercises" element={<ExercisesPage />} />
         </Routes>
       </Wrapper>

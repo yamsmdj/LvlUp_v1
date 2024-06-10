@@ -25,7 +25,6 @@ const PatchAccount = ({userId, userPseudo, userEmail }) => {
           console.error("Erreur lors de la création d'un utilisateur", err);
         });
     };
-  console.log(userPseudo);
     return (
         <section>
             <form onSubmit={handleSubmit} className='w-1/2 text-xl text-green-600'>
