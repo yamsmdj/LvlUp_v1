@@ -19,7 +19,7 @@ const PatchAccount = ({userId, userPseudo, userEmail }) => {
         .patch(`http://localhost:3001/api/auth/${userId}`,updatedFields
         )
         .then(()=> {
-          console.log("Utilisateur modifier avec succès");
+          console.log("Utilisateur modifié avec succès");
         })
         .catch((err) => {
           console.error("Erreur lors de la création d'un utilisateur", err);
